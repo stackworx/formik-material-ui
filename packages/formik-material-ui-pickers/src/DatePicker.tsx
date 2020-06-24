@@ -12,11 +12,12 @@ export interface DatePickerProps
 
 export function fieldToDatePicker({
   field,
-  form: { isSubmitting, touched, errors, setFieldValue, setFieldError },
+  form: { isSubmitting, touched, errors, status = {}, setFieldValue, setFieldError },
   disabled,
   ...props
 }: DatePickerProps): MuiDatePickerProps {
-  const fieldError = getIn(errors, field.name);
+  const fieldError =
+    getIn(errors, field.name) || getIn(status.errors, field.name);;
   const showError = getIn(touched, field.name) && !!fieldError;
 
   return {

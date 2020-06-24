@@ -11,10 +11,11 @@ export interface TextFieldProps
 export function fieldToTextField({
   disabled,
   field,
-  form: { isSubmitting, touched, errors },
+  form: { isSubmitting, touched, errors, status = {} },
   ...props
 }: TextFieldProps): MuiTextFieldProps {
-  const fieldError = getIn(errors, field.name);
+  const fieldError =
+    getIn(errors, field.name) || getIn(status.errors, field.name);
   const showError = getIn(touched, field.name) && !!fieldError;
 
   return {

@@ -90,3 +90,11 @@ A common scenario where this is problematic is where using Formik for search. He
   )}
 </Formik>
 ```
+
+## Can i use setStatus for managing async errors?
+
+Yes, you can store your async errors inside status.errors in the same way formik errors work. Errors are reported like:
+
+`{ [key: string]: string }`
+
+https://github.com/jaredpalmer/formik/issues/150

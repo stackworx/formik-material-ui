@@ -13,10 +13,11 @@ export interface KeyboardDatePickerProps
 export function fieldToKeyboardDatePicker({
   disabled,
   field,
-  form: { isSubmitting, touched, errors, setFieldValue, setFieldError },
+  form: { isSubmitting, touched, errors, status = {}, setFieldValue, setFieldError },
   ...props
 }: KeyboardDatePickerProps): MuiKeyboardDatePickerProps {
-  const fieldError = getIn(errors, field.name);
+  const fieldError =
+    getIn(errors, field.name) || getIn(status.errors, field.name);
   const showError = getIn(touched, field.name) && !!fieldError;
 
   return {

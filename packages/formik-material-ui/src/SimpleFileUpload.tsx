@@ -15,14 +15,16 @@ export interface SimpleFileUploadProps extends FieldProps {
 
 export const SimpleFileUpload = ({
   field,
-  form: { isSubmitting, touched, errors, setFieldValue },
+  form: { isSubmitting, touched, errors, setFieldValue, status = {} },
   label,
   disabled = false,
   InputProps: inputProps,
   InputLabelProps: inputLabelProps,
   FormControlProps: formControlProps,
 }: SimpleFileUploadProps) => {
-  const error = getIn(touched, field.name) && getIn(errors, field.name);
+  const error =
+    getIn(touched, field.name) &&
+    (getIn(errors, field.name) || getIn(status.errors, field.name));
 
   return (
     <FormControl {...formControlProps}>
