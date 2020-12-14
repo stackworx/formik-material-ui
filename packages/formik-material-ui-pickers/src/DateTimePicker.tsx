@@ -17,6 +17,7 @@ export function fieldToDateTimePicker({
   onChange,
   onBlur,
   onError,
+  helperText,
   ...props
 }: DateTimePickerProps): MuiDateTimePickerProps {
   const fieldError = getIn(errors, field.name);
@@ -24,7 +25,7 @@ export function fieldToDateTimePicker({
 
   return {
     error: showError,
-    helperText: showError ? fieldError : props.helperText,
+    helperText: showError ? fieldError : helperText,
     disabled: disabled ?? isSubmitting,
     onChange:
       onChange ??

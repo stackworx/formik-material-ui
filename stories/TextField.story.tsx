@@ -25,6 +25,7 @@ import FormValues from './FormValues';
 interface Values {
   user: { email: string };
   password: string;
+  helperText: string;
   uppercasing: string;
   select: string;
   outlined: string;
@@ -35,6 +36,7 @@ const schema = yup.object().shape({
     email: yup.string().email().required(),
   }),
   password: yup.string().required(),
+  helperText: yup.string().required(),
   select: yup.mixed().required(),
 });
 
@@ -92,6 +94,7 @@ export default withStyles(styles)(({ classes }: WithStyles<typeof styles>) => (
       initialValues={{
         user: { email: '' },
         password: '',
+        helperText: '',
         uppercasing: '',
         select: '',
         outlined: '',
@@ -119,6 +122,14 @@ export default withStyles(styles)(({ classes }: WithStyles<typeof styles>) => (
             type="password"
             label="Password"
             name="password"
+          />
+          <br />
+          <Field
+            component={TextField}
+            type="text"
+            label="Field with helper text"
+            name="helperText"
+            helperText="Helper text goes here"
           />
           <br />
           <Field

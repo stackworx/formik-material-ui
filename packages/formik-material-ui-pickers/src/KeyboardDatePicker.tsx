@@ -17,6 +17,7 @@ export function fieldToKeyboardDatePicker({
   onChange,
   onBlur,
   onError,
+  helperText,
   ...props
 }: KeyboardDatePickerProps): MuiKeyboardDatePickerProps {
   const fieldError = getIn(errors, field.name);
@@ -24,7 +25,7 @@ export function fieldToKeyboardDatePicker({
 
   return {
     error: showError,
-    helperText: showError ? fieldError : props.helperText,
+    helperText: showError ? fieldError : helperText,
     disabled: disabled ?? isSubmitting,
     onChange:
       onChange ??

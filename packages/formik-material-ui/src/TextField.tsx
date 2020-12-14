@@ -20,7 +20,6 @@ export function fieldToTextField({
   const showError = getIn(touched, field.name) && !!fieldError;
 
   return {
-    variant: props.variant,
     error: showError,
     helperText: showError ? fieldError : helperText,
     disabled: disabled ?? isSubmitting,

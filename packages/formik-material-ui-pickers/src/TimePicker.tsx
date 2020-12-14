@@ -17,6 +17,7 @@ export function fieldToTimePicker({
   onChange,
   onBlur,
   onError,
+  helperText,
   ...props
 }: TimePickerProps): MuiTimePickerProps {
   const fieldError = getIn(errors, field.name);
@@ -24,7 +25,7 @@ export function fieldToTimePicker({
 
   return {
     error: showError,
-    helperText: showError ? fieldError : props.helperText,
+    helperText: showError ? fieldError : helperText,
     disabled: disabled ?? isSubmitting,
     onChange:
       onChange ??

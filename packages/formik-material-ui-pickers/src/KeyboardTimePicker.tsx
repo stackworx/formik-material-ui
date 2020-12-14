@@ -17,6 +17,7 @@ export function fieldToKeyboardTimePicker({
   onChange,
   onBlur,
   onError,
+  helperText,
   ...props
 }: KeyboardTimePickerProps): MuiKeyboardTimePickerProps {
   const fieldError = getIn(errors, field.name);
@@ -24,7 +25,7 @@ export function fieldToKeyboardTimePicker({
 
   return {
     error: showError,
-    helperText: showError ? fieldError : props.helperText,
+    helperText: showError ? fieldError : helperText,
     disabled: disabled != undefined ? disabled : isSubmitting,
     onChange:
       onChange ??
