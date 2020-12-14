@@ -1,5 +1,6 @@
 export * from './TextField';
 export * from './Switch';
+export * from './SwitchWithLabel';
 export * from './Checkbox';
 export * from './CheckboxWithLabel';
 export * from './Select';

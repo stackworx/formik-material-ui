@@ -149,6 +149,23 @@ import { Switch } from 'formik-material-ui';
 
 #### [Material-UI Documentation](https://material-ui.com/api/switch/)
 
+## SwitchWithLabel
+
+A convenience wrapper that adds label to Switch using FormControlLabel. Supports all the same properties as Switch and accepts an additional `Label` prop, which are props applied to FormControlLabel.
+
+#### Example
+
+```jsx
+import { SwitchWithLabel } from 'formik-material-ui';
+
+<Field
+  component={SwitchWithLabel}
+  type="checkbox"
+  name="checked"
+  Label={{ label: 'Switch' }}
+/>;
+```
+
 ## TextField
 
 #### Example
